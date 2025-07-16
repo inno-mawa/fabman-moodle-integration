@@ -1,0 +1,43 @@
+{
+  "name": "certificate-generation-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npm run build && npm run copy-templates && node dist/app.js",
+    "build": "tsc",
+    "copy-templates": "copyfiles -u 2 src/templates/**/* dist/src/templates"
+  },
+  "dependencies": {
+    "@types/html-to-text": "^9.0.4",
+    "@types/imap-simple": "^4.2.10",
+    "@types/mailparser": "^3.4.6",
+    "@types/nodemailer": "^6.4.17",
+    "@types/typescript": "^0.4.29",
+    "axios": "^1.10.0",
+    "axios-cookiejar-support": "^6.0.3",
+    "cheerio": "^1.1.0",
+    "docxtemplater": "^3.63.2",
+    "dotenv": "^16.5.0",
+    "googleapis": "^149.0.0",
+    "gotenberg-js-client": "^0.7.4",
+    "html-to-text": "^9.0.5",
+    "imap-simple": "^5.1.0",
+    "lodash": "^4.17.21",
+    "mailparser": "^3.7.3",
+    "node-cron": "^4.1.0",
+    "nodemailer": "^7.0.3",
+    "pizzip": "^3.2.0",
+    "tough-cookie": "^5.1.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/lodash": "^4.17.17",
+    "@types/node": "^22.15.30",
+    "copyfiles": "^2.4.1"
+  }
+}

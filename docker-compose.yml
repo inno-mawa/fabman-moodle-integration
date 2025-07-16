@@ -1,0 +1,50 @@
+services:
+
+#  fabman-registration-server:
+#    networks:
+#      - internal
+#    build:
+#      context: ./fabman-registration-server
+#      dockerfile: Dockerfile
+#    container_name: fabman-registration-server
+#    ports:
+#      - 3000:3000
+#    environment: 
+#      - FABMAN_ACCOUNT_ID=2926
+#      # Only replace this, if this stack is not deployed at https://register.inno-space.de
+#      - REGISTER_URL=${REGISTER_URL}
+#      # REPLACE ${...} with your secrets or create an .env file
+#      # in this directory containing the following env vars
+#      - FABMAN_API_KEY=${FABMAN_API_KEY}
+#      - ENROLLMENT_KEY=${ENROLLMENT_KEY} # must be known to users to create accounts, best revealed in moodle course
+  
+  # integration that handles mastering machinery completions and certificates
+  fabman-moodle-integration: 
+    networks:
+      - internal
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fabman-moodle-integration
+    environment:
+      - MAIL_USER=r.reyer@hs-mannheim.de
+      - DEBUG_MODE=TRUE
+      - FABMAN_ACCOUNT_ID=2926
+      - GOTENBERG_URL=http://gotenberg:3000
+      - NOTIFICATION_MAILADDRESS=r.reyer@hs-mannheim.de
+      - MOODLE_USERNAME=reyer
+      # REPLACE ${...} with your secrets or create an .env file
+      # in this directory containing the following env vars
+      - FABMAN_API_KEY=${FABMAN_API_KEY}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MOODLE_PASSWORD=${MOODLE_PASSWORD}
+
+  gotenberg:
+    restart: always
+    image: gotenberg/gotenberg:7
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
