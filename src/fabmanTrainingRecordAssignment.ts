@@ -92,9 +92,9 @@ async function sendRequestForManualAssignment(studentName: string, trainingName:
         await SMTPTransport.sendMail({
             from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
             to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
-            subject: "Bitte um Zuweisung eines Training Records", // Subject line
-            text: `Liebes TTeam Mitglied. Leider konnte dem Studierenden ${studentName} der Training Record ${trainingName} nicht automatisch zugewiesen werden. Bitte lege den Training Record in FabMan manuell an.`, // plain text body
-            html: `<p>Liebes TTeam Mitglied. Leider konnte dem Studierenden ${studentName} der Training Record ${trainingName} nicht automatisch zugewiesen werden. Bitte lege den Training Record in FabMan manuell an.</p>`, // html body
+            subject: `Bitte um Zuweisung eines Training Records (${studentName} / ${trainingName})`, // Subject line
+            text: `Liebes TTeam,\nleider konnte dem Studi ${studentName} der Training Record ${trainingName} nicht automatisch zugewiesen werden. Bitte legt den Training Record in FabMan manuell an.`, // plain text body
+            html: `<p>Liebes TTeam,<br>leider konnte dem Studi <b>${studentName}</b> der Training Record <b>${trainingName}</b> nicht automatisch zugewiesen werden. Bitte legt den Training Record in FabMan manuell an.</p>`, // html body
         });
         debugLog(`Mail mit Bitte um Zuweisung eines Trainings Records für ${studentName} versendet.`);
     } catch (err) {

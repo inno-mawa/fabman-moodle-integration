@@ -115,9 +115,9 @@ async function sendRequestForManualCertificate(studentName: string, trainingName
         await SMTPTransport.sendMail({
             from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
             to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
-            subject: "Bitte um Zustellung eines Zertifikats", // Subject line
-            text: `Liebes TTeam Mitglied. Leider konnte das ${trainingName} Zertifikat für ${studentName} nicht automatisch erstellt werden. Bitte erstelle und sende das Zertifikat manuell.`, // plain text body
-            html: `<p>Liebes TTeam Mitglied. Leider konnte das <b>${trainingName}</b> Zertifikat für <b>${studentName}</b> nicht automatisch erstellt werden. Bitte erstelle und sende das Zertifikat manuell.</p>`, // html body
+            subject: `Bitte um Ausstellung eines Zertifikats (${studentName} / ${trainingName})`, // Subject line
+            text: `Liebes TTeam,\nleider konnte das ${trainingName} Zertifikat für ${studentName} nicht automatisch ausgestellt werden.\nBitte erstelle und sende das Zertifikat manuell.`, // plain text body
+            html: `<p>Liebes TTeam Mitglied,<br>Leider konnte das <b>${trainingName}</b> Zertifikat für <b>${studentName}</b> nicht automatisch ausgestellt werden.<br>Bitte erstelle und sende das Zertifikat manuell.</p>`, // html body
         });
         debugLog(`Mail mit Bitte um Zustellung eines Zertifikats für ${studentName} versendet.`);
     } catch (err) {
@@ -126,20 +126,30 @@ async function sendRequestForManualCertificate(studentName: string, trainingName
 }
 
 async function sendCertificateToStudent(studentName: string, studentMatId: string, trainingName: string, emailAddress: string, certificate: Buffer) {
-    try {
         await SMTPTransport.sendMail({
             from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
             to: emailAddress, // list of receivers
-            subject: "Dein Schulungszertifikat", // Subject line
-            text: "Vielen Dank für deine Teilnahme. Dein Zertifikat findest du im Anhang.", // plain text body
-            html: "<p>Vielen Dank für deine Teilnahme. Dein Zertifikat findest du im Anhang.</p>", // html body
+            subject: `Dein Schulungszertifikat für den ${trainingName} Kurs`, // Subject line
+            text: `Liebe/r ${studentName},\n\nVielen Dank für deine Teilnahme am ${trainingName} Kurs.\nDein Zertifikat findest du im Anhang.\nWir hoffen, dich bald wieder im maker.space begrüßen zu dürfen!\n\nLiebe Grüße\nDas maker.space Team`, // plain text body
+            html: `<p>Liebe/r ${studentName}<br><br>Vielen Dank für deine Teilnahme am ${trainingName} Kurs im maker.space!<br>Dein Zertifikat findest du im Anhang.<br>Wir hoffen, dich bald wieder im maker.space begrüßen dürfen!<br><br>Liebe Grüße<br>Das maker.space Team</p>`, // html body
             attachments: [{
                 filename: `Schulungszertifikat_${trainingName}_${studentName}.pdf`,
                 content: certificate
             }]
         });
+
+        await SMTPTransport.sendMail({
+            from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
+            to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
+            subject: `Zertifikat ausgestellt: ${studentName} / ${trainingName}`, // Subject line
+            text: `Liebes TTeam,\n${studentName} wurde gerade ein ${trainingName} Zertifikat ausgestellt. Zur Nachverfolgung findet ihr eine Kopie im Anhang.`, // plain text body
+            html: `<p>Liebes TTeam,<br>${studentName} wurde gerade ein ${trainingName} Zertifikat ausgestellt. Zur Nachverfolgung findet ihr eine Kopie im Anhang.</p>`, // html body
+            attachments: [{
+                filename: `Schulungszertifikat_${trainingName}_${studentName}.pdf`,
+                content: certificate
+            }]
+        });
+
         debugLog(`sent certificate for ${studentName}, badge ${trainingName}`)
-    } catch (err) {
-        console.error("Error while sending mail", err);
-    }
+
 }

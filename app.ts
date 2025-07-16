@@ -13,8 +13,8 @@ dotenv.config()
 //check presence of necessary environment variables to prevent runtime errors down the road
 checkPresenceOfEnvVariables()
 
-//fetch and process emails every 2 minutes
-cron.schedule('* * * * *', async () => {
+//fetch and process emails every minute
+cron.schedule('* 7-23 * * *', async () => {
     try {
         debugLog(`${new Date().toISOString()}: running fetchAndProcessMails Job`)
         const mailInfos = await fetchMails();

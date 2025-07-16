@@ -46,7 +46,7 @@ export async function fetchMails(): Promise<TMailInfo[]> {
         //don't 
         var fetchOptions = {
             bodies: [''],
-            markSeen: true
+            markSeen: false
         };
 
         debugLog("search for messages")
@@ -60,7 +60,7 @@ export async function fetchMails(): Promise<TMailInfo[]> {
             // wrap in try catch to allow all messages to be handled even if an exception occurs during processing
             try {
 
-                //await setMailToSeen(connection, msg.attributes.uid)
+                await setMailToSeen(connection, msg.attributes.uid)
                 
                 const parsedMail = await parseMessage(msg)
                 

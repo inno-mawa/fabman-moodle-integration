@@ -112,7 +112,7 @@ async function sendRequestForManualMemberCreation(mailInfo: TRegistrationRequest
         await SMTPTransport.sendMail({
             from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
             to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
-            subject: "Bitte um Erstellung eines FabMan Accounts", // Subject line
+            subject: `Bitte um Erstellung eines FabMan Accounts für ${mailInfo.studentName}`, // Subject line
             text: `Liebes TTeam Mitglied. Leider konnte dem Studi ${mailInfo.studentName} kein Nutzer angelegt werden. Bitte lege den Nutzer in FabMan manuell an.`, // plain text body
             html: `<p>Liebes TTeam Mitglied. Leider konnte dem Studi ${mailInfo.studentName} kein Nutzer angelegt werden. Das ausgefüllte Formular findest du <a href=${mailInfo.feedbackLink}>hier</a>.  Bitte lege den Nutzer in FabMan manuell an.</p>`, // html body
         });
