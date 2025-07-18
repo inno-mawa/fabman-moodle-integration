@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { convertDateToFabmanDateString, debugLog } from "./utils";
-import { SMTPTransport } from "./nodemailer";
+import { SMTPTransport } from "./mailConfig";
 import { TBadgeMailInfo } from "./types";
 
 export async function addFabmanTrainingRecordToUser(mailInfo: TBadgeMailInfo) {
@@ -90,7 +90,7 @@ export async function addFabmanTrainingRecordToUser(mailInfo: TBadgeMailInfo) {
 async function sendRequestForManualAssignment(studentName: string, trainingName: string) {
     try {
         await SMTPTransport.sendMail({
-            from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
+            from: `"maker.space" <${process.env.OUTBOUND_MAIL_USER}>`, // sender address
             to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
             subject: `Bitte um Zuweisung eines Training Records (${studentName} / ${trainingName})`, // Subject line
             text: `Liebes TTeam,\nleider konnte dem Studi ${studentName} der Training Record ${trainingName} nicht automatisch zugewiesen werden. Bitte legt den Training Record in FabMan manuell an.`, // plain text body

@@ -5,7 +5,12 @@ declare namespace NodeJS {
          * E-Mailadresse des Mailaccounts, 
          * der die Moodle Benachrichtigungen für Badges und Feedbacks des MM Kurses erhält
          */
-        MAIL_USER: string
+        INBOUND_MAIL_USER: string
+        /**
+         * E-Mailadresse des Mailaccounts, 
+         * von dem die Zertifikate an Studis verschickt werden
+         */
+        OUTBOUND_MAIL_USER: string
         /**
          * "TRUE": debugLog() Funktion produziert Debug Ausgaben in der Konsole
          * "FALSE": debugLog() Funktion produziert keine Debug Ausgaben in der Konsole
@@ -40,7 +45,12 @@ declare namespace NodeJS {
          * Passwort des Mailaccounts, 
          * der die Moodle Benachrichtigungen für Badges und Feedbacks des MM Kurses erhält
          */
-        MAIL_PASSWORD: string
+        INBOUND_MAIL_PASSWORD: string
+        /**
+         * Passwort des Mailaccounts, 
+         * von dem die Zertifikate an Studis verschickt werden
+         */
+        OUTBOUND_MAIL_PASSWORD: string
         /**
          *  Passwort des Moodle-Accounts, welcher für das automatische Auslesen der
          *  Umfragen / Formulare (FabMan Anmeldung) verwendet wird

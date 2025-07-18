@@ -3,7 +3,7 @@ import { debugLog, toPDF } from "./utils";
 import fs from "fs";
 import PizZip from "pizzip"
 import Docxtemplater from "docxtemplater";
-import { SMTPTransport } from "./nodemailer";
+import { SMTPTransport } from "./mailConfig";
 import { buffer } from "stream/consumers";
 import axios, { AxiosRequestConfig } from "axios";
 import { TBadgeMailInfo } from "./types";
@@ -113,7 +113,7 @@ async function sendRequestForManualCertificate(studentName: string, trainingName
     debugLog(`requesting manual delivery of certificate ${trainingName} for ${studentName}`)
     try {
         await SMTPTransport.sendMail({
-            from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
+            from: `"maker.space" <${process.env.OUTBOUND_MAIL_USER}>`, // sender address
             to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
             subject: `Bitte um Ausstellung eines Zertifikats (${studentName} / ${trainingName})`, // Subject line
             text: `Liebes TTeam,\nleider konnte das ${trainingName} Zertifikat für ${studentName} nicht automatisch ausgestellt werden.\nBitte erstelle und sende das Zertifikat manuell.`, // plain text body
@@ -127,7 +127,7 @@ async function sendRequestForManualCertificate(studentName: string, trainingName
 
 async function sendCertificateToStudent(studentName: string, studentMatId: string, trainingName: string, emailAddress: string, certificate: Buffer) {
         await SMTPTransport.sendMail({
-            from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
+            from: `"maker.space" <${process.env.OUTBOUND_MAIL_USER}>`, // sender address
             to: emailAddress, // list of receivers
             subject: `Dein Schulungszertifikat für den ${trainingName} Kurs`, // Subject line
             text: `Liebe/r ${studentName},\n\nVielen Dank für deine Teilnahme am ${trainingName} Kurs.\nDein Zertifikat findest du im Anhang.\nWir hoffen, dich bald wieder im maker.space begrüßen zu dürfen!\n\nLiebe Grüße\nDas maker.space Team`, // plain text body
@@ -139,7 +139,7 @@ async function sendCertificateToStudent(studentName: string, studentMatId: strin
         });
 
         await SMTPTransport.sendMail({
-            from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
+            from: `"maker.space" <${process.env.OUTBOUND_MAIL_USER}>`, // sender address
             to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
             subject: `Zertifikat ausgestellt: ${studentName} / ${trainingName}`, // Subject line
             text: `Liebes TTeam,\n${studentName} wurde gerade ein ${trainingName} Zertifikat ausgestellt. Zur Nachverfolgung findet ihr eine Kopie im Anhang.`, // plain text body

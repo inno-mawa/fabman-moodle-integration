@@ -2,14 +2,16 @@ import { adjust, convert, gotenberg, office, pipe, please, portrait, to } from "
 
 export function checkPresenceOfEnvVariables() {
     const requiredEnvVariables = [
-        'MAIL_USER',
+        'INBOUND_MAIL_USER',
+        'OUTBOUND_MAIL_USER',
         'DEBUG_MODE',
         'FABMAN_ACCOUNT_ID',
         'GOTENBERG_URL',
         'NOTIFICATION_MAILADDRESS',
         'MOODLE_USERNAME',
         'FABMAN_API_KEY',
-        'MAIL_PASSWORD',
+        'INBOUND_MAIL_PASSWORD',
+        'OUTBOUND_MAIL_PASSWORD',
         'MOODLE_PASSWORD'
     ]
 

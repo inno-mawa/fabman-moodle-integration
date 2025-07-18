@@ -4,7 +4,7 @@ import { CookieJar } from "tough-cookie"
 import { wrapper } from "axios-cookiejar-support"
 
 import * as cheerio from "cheerio"
-import { SMTPTransport } from "./nodemailer";
+import { SMTPTransport } from "./mailConfig";
 import { debugLog, splitName } from "./utils";
 
 /**
@@ -110,7 +110,7 @@ export async function createFabmanMember(fabManMember: TFabManMember) {
 async function sendRequestForManualMemberCreation(mailInfo: TRegistrationRequestMailInfo) {
     try {
         await SMTPTransport.sendMail({
-            from: `"maker.space" <${process.env.MAIL_USER}>`, // sender address
+            from: `"maker.space" <${process.env.OUTBOUND_MAIL_USER}>`, // sender address
             to: process.env.NOTIFICATION_MAILADDRESS, // list of receivers
             subject: `Bitte um Erstellung eines FabMan Accounts für ${mailInfo.studentName}`, // Subject line
             text: `Liebes TTeam Mitglied. Leider konnte dem Studi ${mailInfo.studentName} kein Nutzer angelegt werden. Bitte lege den Nutzer in FabMan manuell an.`, // plain text body

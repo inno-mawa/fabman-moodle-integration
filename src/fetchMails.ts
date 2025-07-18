@@ -4,6 +4,7 @@ import { ParsedMail, simpleParser } from 'mailparser';
 import { htmlToText } from "html-to-text";
 import { EMailType, TBadgeMailInfo, TMailInfo, TRegistrationRequestMailInfo } from './types';
 import { debugLog } from './utils';
+import { IMAPConfig } from './mailConfig';
 
 /**
  * name of the moodle feedback task to search for in the mail subjects
@@ -14,24 +15,14 @@ const FEEDBACK_SEARCH_STRING = "FabMan Anmeldung"
  */
 const BADGE_SEARCH_STRING = "wurde ausgezeichnet!"
 
-//imap configuration
-var config = {
-    imap: {
-        user: process.env.MAIL_USER as string,
-        password: process.env.MAIL_PASSWORD as string,
-        host: 'mail.hs-mannheim.de',
-        port: 993,
-        tls: true,
-        authTimeout: 3000
-    }
-};
+
 
 
 export async function fetchMails(): Promise<TMailInfo[]> {
     debugLog("opening connection")
 
     //open connection to the imap server
-    const connection = await imaps.connect(config)
+    const connection = await imaps.connect(IMAPConfig)
 
     try {
         debugLog("opening inbox")
