@@ -84,7 +84,7 @@ export async function fetchMails(): Promise<TMailInfo[]> {
                 console.log(e)
             }
         }
-        debugLog(`found ${messages.length} messages to process`)
+        debugLog(`found ${mailInfos.length} messages to process`)
         return mailInfos;
     } finally {
         //always close the connection to the imap server, also if an error occurs

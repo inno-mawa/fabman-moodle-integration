@@ -1,25 +1,8 @@
 services:
-
-#  fabman-registration-server:
-#    networks:
-#      - internal
-#    build:
-#      context: ./fabman-registration-server
-#      dockerfile: Dockerfile
-#    container_name: fabman-registration-server
-#    ports:
-#      - 3000:3000
-#    environment: 
-#      - FABMAN_ACCOUNT_ID=2926
-#      # Only replace this, if this stack is not deployed at https://register.inno-space.de
-#      - REGISTER_URL=${REGISTER_URL}
-#      # REPLACE ${...} with your secrets or create an .env file
-#      # in this directory containing the following env vars
-#      - FABMAN_API_KEY=${FABMAN_API_KEY}
-#      - ENROLLMENT_KEY=${ENROLLMENT_KEY} # must be known to users to create accounts, best revealed in moodle course
-  
-  # integration that handles mastering machinery completions and certificates
+  # integration that handles mastering machinery completions and corresponding certificates
+  # as well as registrations from the moodle course
   fabman-moodle-integration: 
+    restart: always
     networks:
       - internal
     build:
@@ -27,6 +10,7 @@ services:
       dockerfile: Dockerfile
     container_name: fabman-moodle-integration
     environment:
+      # customize these if necessary
       - MAIL_USER=r.reyer@hs-mannheim.de
       - DEBUG_MODE=TRUE
       - FABMAN_ACCOUNT_ID=2926
