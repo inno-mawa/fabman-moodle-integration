@@ -87,7 +87,7 @@ export async function getMatIdFromFeedbackLink(mailInfo: TRegistrationRequestMai
     //extract and return input that contains the matrikelnummer (matId)
     const matId = $feedbackPage(`input[name="${MATID_FIELDNAME}"]`).attr('value');
     if (!matId) {
-        throw new Error("Matrikelnummer could not be extracted from view feedback page")
+        throw new Error(`Matrikelnummer could not be extracted from view feedback page. searched for: ${MATID_FIELDNAME}`)
     }
     return matId;
 }
