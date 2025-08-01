@@ -16,7 +16,7 @@ services:
       - FABMAN_ACCOUNT_ID=2926                              # Account ID of the FabMan Account, should never change
       - GOTENBERG_URL=http://gotenberg:3000                 # Internal IP of the Gotenberg PDF rendering engine, should never change
       - NOTIFICATION_MAILADDRESS=inno.space@hs-mannheim.de  # email address where notifications about issued certificates or errors are sent
-      - MOODLE_USERNAME=reyer                               # username of the Moodle Account used to log into moodle
+      - MOODLE_USERNAME=walter                               # username of the Moodle Account used to log into moodle
       # fill these values by renaming .env-template -> .env and filling the empty values
       # quotation marks ("") are needed because values might contain #
       - FABMAN_API_KEY=${FABMAN_API_KEY}
