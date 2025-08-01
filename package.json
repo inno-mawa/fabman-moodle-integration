@@ -22,7 +22,6 @@
     "cheerio": "^1.1.0",
     "docxtemplater": "^3.63.2",
     "dotenv": "^16.5.0",
-    "googleapis": "^149.0.0",
     "gotenberg-js-client": "^0.7.4",
     "html-to-text": "^9.0.5",
     "imap-simple": "^5.1.0",

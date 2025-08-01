@@ -10,21 +10,21 @@ services:
       dockerfile: Dockerfile
     container_name: fabman-moodle-integration
     environment:
-      # customize these in the repo if necessary
-      - INBOUND_MAIL_USER=r.reyer@hs-mannheim.de
-      - OUTBOUND_MAIL_USER=r.reyer@hs-mannheim.de
-      - DEBUG_MODE=TRUE
-      - FABMAN_ACCOUNT_ID=2926
-      - GOTENBERG_URL=http://gotenberg:3000
-      - NOTIFICATION_MAILADDRESS=r.reyer@hs-mannheim.de
-      - MOODLE_USERNAME=reyer
-      # Please create an .env file
-      # in this directory containing the following env vars
+      - INBOUND_MAIL_USER=maker.space@hs-mannheim.de        # username of inbound mail for receiving moodle notifications
+      - OUTBOUND_MAIL_USER=inno.space@hs-mannheim.de        # username of outbound mail for sending certificates
+      - DEBUG_MODE=TRUE                                     # TRUE = print debug logs, FALSE = don't print debug logs
+      - FABMAN_ACCOUNT_ID=2926                              # Account ID of the FabMan Account, should never change
+      - GOTENBERG_URL=http://gotenberg:3000                 # Internal IP of the Gotenberg PDF rendering engine, should never change
+      - NOTIFICATION_MAILADDRESS=inno.space@hs-mannheim.de  # email address where notifications about issued certificates or errors are sent
+      - MOODLE_USERNAME=reyer                               # username of the Moodle Account used to log into moodle
+      # fill these values by renaming .env-template -> .env and filling the empty values
+      # quotation marks ("") are needed because values might contain #
       - FABMAN_API_KEY=${FABMAN_API_KEY}
       - INBOUND_MAIL_PASSWORD=${INBOUND_MAIL_PASSWORD}
       - OUTBOUND_MAIL_PASSWORD=${OUTBOUND_MAIL_PASSWORD}
       - MOODLE_PASSWORD=${MOODLE_PASSWORD}
 
+  # PDF Rendering Engine
   gotenberg:
     restart: always
     image: gotenberg/gotenberg:7
