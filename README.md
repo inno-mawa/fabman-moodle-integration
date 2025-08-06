@@ -43,30 +43,38 @@ Tritt ein Fehler auf, wird das Teaching-Team per Mail benachrichtigt und darum g
 # Anforderungen an den IT-Kontext
 Damit alles wie oben beschrieben funktioniert, gibt es einige Voraussetzungen. Die Menge und der Detailgrad der Voraussetzungen sind vor allem der Unflexibilität der Moodle-Administration und der daraus notwendigen zahlreichen Workarounds geschuldet.
 
-## Moodle-Kurse
-## Postfächer
+## Mail-Postfächer
+Die Integration muss Zugriff auf ein E-Mail Postfach haben, welches die oben beschriebenen Benachrichtigungen erhält. Am einfachsten ist es, wenn ein Teaching-Team Member alle benachrichtigungsrelevanten Elemente / Aktivitäten in Moodle anlegt, damit alle Benachrichtigungen in einem Postfach landen. Dafür ist eine Funktionsmailadresse (maker.space@hs-mannheim.de) eingerichtet. 
+Der entsprechende Teaching-Team Member leitet alle seine Moodle-Emails an dieses Postfach weiter.
 
+## Feedback Formular für die FabMan Anmeldung
 
+## Terminbuchungskalender für Präsenzschulungen
 
+## Badges
 
-
-
-
-
-
-
-
-
-
-
-## Anwendung starten
+# Anwendung starten
 - Auf einem docker-fähigen Gerät (bspw. RaspberryPi) [Docker](https://www.docker.com/) installieren.
-- Dieses repository clonen
-- In der docker-compose.yml Datei an den markierten Stellen Secrets ergänzen
-- Eine Kommandozeile im Verzeichnis fabman-moodle-integration öffnen
+- [git](https://git-scm.com/) installieren
+- Kommandozeile öffnen
+- Dieses Repository clonen `git clone https://github.com/inno-mawa/fabman-moodle-integration`
+- In das Repository navigieren `cd fabman-moodle-integration`
+- .env-template Datei anpassen und secrets an den entsprechenden Stellen ergänzen
+- .env-template Datei in .env umbenennen
 - `docker compose build` ausführen
 - `docker compose up` (Ausführung im Vordergrund) oder `docker compose up -d` (Ausführung im Hintergrund) ausführen.
-- die Integration läuft jetzt und überprüft in regelmäßigen Abständen (siehe app.ts) das Mailpostfach und verarbeitet ggf. neue ungelesene Mails. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Hinweise
 1. Badges in Moodle müssen nach dem Pattern {FabManTrainingName}_{Jahr}, also z.B. MMLC_25 angelegt werden. Weil TrainingRecords nach einem Jahr ablaufen müssen, und der Studi die Schulung dann neu machen muss, muss immer zum Jahresbeginn neue Badges für das laufende Jahr angelegt werden. Sonst funktioniert die automatische Rechtevergabe nicht, weil jeder Studi jedes Badge nur ein Mal erwerben kann.
