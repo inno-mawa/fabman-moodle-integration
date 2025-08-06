@@ -14,8 +14,7 @@ import { debugLog, splitName } from "./utils";
  * den Link in der Mail zum Feedback anzeigen anklicken, das HTML abspeichern und nach der Nummer suchen.
  * Dann den name des <input> Attributs hier reinkopieren
  */
-const MATID_FIELDNAME = "numeric_169882"
-
+const MATID_FIELDNAME = process.env.MATNO_FIELDNAME as string
 
 
 export async function registerStudentInFabman(mailInfo: TRegistrationRequestMailInfo) {

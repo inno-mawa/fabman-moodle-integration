@@ -53,6 +53,8 @@ Der entsprechende Teaching-Team Member leitet alle seine Moodle-Emails an dieses
 
 ## Badges
 
+## FabMan Training Records
+
 # Anwendung starten
 - Auf einem docker-fähigen Gerät (bspw. RaspberryPi) [Docker](https://www.docker.com/) installieren.
 - [git](https://git-scm.com/) installieren
