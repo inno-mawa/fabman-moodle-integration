@@ -12,7 +12,8 @@ export function checkPresenceOfEnvVariables() {
         'FABMAN_API_KEY',
         'INBOUND_MAIL_PASSWORD',
         'OUTBOUND_MAIL_PASSWORD',
-        'MOODLE_PASSWORD'
+        'MOODLE_PASSWORD',
+        'MATNO_FIELDNAME'
     ]
 
     const missing = requiredEnvVariables.filter((envVariableName: string) => {
