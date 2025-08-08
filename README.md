@@ -57,6 +57,8 @@ Damit alles wie oben beschrieben funktioniert, gibt es einige Voraussetzungen. D
 Die Integration muss Zugriff auf ein E-Mail Postfach haben, welches die oben beschriebenen Benachrichtigungen erhält. Am einfachsten ist es, wenn ein Teaching-Team Member alle benachrichtigungsrelevanten Elemente / Aktivitäten in Moodle anlegt, damit alle Benachrichtigungen in einem Postfach landen. Dafür ist eine Funktionsmailadresse (maker.space@hs-mannheim.de) eingerichtet. 
 Der entsprechende Teaching-Team Member leitet alle seine Moodle-Emails an dieses Postfach weiter.
 
+! Die maker.space@hs-mannheim.de darf nicht in Outlook eingebunden werden (Thunderbird ist okay), da sonst bereits verarbeitete E-Mails manchmal fehlerhaft von Outlook wieder auf ungelesen gesetzt werden.
+
 ## Feedback Formular für die FabMan Anmeldung
 Das Feedback Formular sollte im maker.space Kurs angelegt werden und nur verfügbar sein, wenn vorher die Aktivität zum Hochladen der Nutzungsordnung abgeschlossen wurde.
 Nachfolgend befindet sich eine Schritt für Schritt Anleitung zum korrekten Anlegen des Feedback Formulars. Da die Flexibilität der Integration sehr eingeschränkt ist, bitte unbedingt alle Aktivitätsnamen etc. exakt übernehmen inkl. Groß- und Kleinschreibung.
