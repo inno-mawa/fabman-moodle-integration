@@ -109,9 +109,15 @@ Nachfolgend befindet sich eine Schritt für Schritt Anleitung zum korrekten Anle
 
 <center><img src="img_readme/Feedback7.png" width="1200" /></center>
 
+## Abschlussverfolgung in Schulungskursen
+Für die richtige Konfiguration der Terminbuchungskalender muss die Abschlussverfolgung in den jeweiligen Kurseinstellungen aktiviert sein.
+Dazu in die Kurseinstellungen navigieren und die Abschlussverfolgung aktivieren
+
+<center><img src="img_readme/Abschlussverfolgung.png" width="1200" /></center>
+
 
 ## Terminbuchungskalender für Präsenzschulungen
-Pro Schulung wird im entsprechenden Moodle Kurs ein Terminbuchungskalender (Planer) angelegt. Damit alles reibungslos funktioniert, muss der Kalender entsprechend der nachfolgenden Anleitung angelegt bzw. angepasst werden. Außerdem muss die Abschlussverfolgung in den jeweiligen Kurseinstellungen aktiviert sein. 
+Pro Schulung wird im entsprechenden Moodle Kurs ein Terminbuchungskalender (Planer) angelegt. Damit alles reibungslos funktioniert, muss der Kalender entsprechend der nachfolgenden Anleitung angelegt bzw. angepasst werden. Außerdem muss die [Abschlussverfolgung](#abschlussverfolgung-in-schulungskursen) in den jeweiligen Kurseinstellungen aktiviert sein. 
 
 ### 0. Planereinstellungen öffnen
 - Die Einstellungen der entsprechenden Planeraktivität öffnen
@@ -128,7 +134,7 @@ Pro Schulung wird im entsprechenden Moodle Kurs ein Terminbuchungskalender (Plan
 - Abschlussbedingung hinzufügen
 - Aktivität ist abgeschlossen, wenn TN eine Bewertung erhalten und damit die Bestehendgrenze erreichen
 
-! Wenn die Überschrift Abschlussbedingungen in den Einstellungen nicht zu finden ist, ist wahrscheinlich die Abschlussverfolgung in den Kurseinstellungen noch nicht aktiviert !
+! Wenn die Überschrift Abschlussbedingungen in den Einstellungen nicht zu finden ist, ist wahrscheinlich die [Abschlussverfolgung](#abschlussverfolgung-in-schulungskursen) in den Kurseinstellungen noch nicht aktiviert !
 
 <center><img src="img_readme/MM-Kalenderbewertung2.png" width="1200" /></center>
 
