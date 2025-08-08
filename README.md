@@ -61,10 +61,63 @@ Der entsprechende Teaching-Team Member leitet alle seine Moodle-Emails an dieses
 Das Feedback Formular sollte im maker.space Kurs angelegt werden und nur verfügbar sein, wenn vorher die Aktivität zum Hochladen der Nutzungsordnung abgeschlossen wurde.
 Nachfolgend befindet sich eine Schritt für Schritt Anleitung zum korrekten Anlegen des Feedback Formulars. Da die Flexibilität der Integration sehr eingeschränkt ist, bitte unbedingt alle Aktivitätsnamen etc. exakt übernehmen inkl. Groß- und Kleinschreibung.
 
+### 1. Feedback anlegen - Allgemeines
+- Der Name des Feedbacks muss exakt `FabMan Anmeldung` lauten.
+
+<center><img src="img_readme/Feedback1.png" width="1200" /></center>
+
+### 2. Feedback anlegen - Einstellungen für Fragen und Einträge / Voraussetzungen
+- Anonym ausfüllen: Ja
+- Mehrfache Abgabe: Ja
+- Systemnachricht bei Abgaben senden: Nein
+- Automatische Nummerierung: Nein
+- Als Voraussetzung definieren, dass Studi die Nutzungsordnung hochgeladen hat und eine erfolgreiche Bewertung erhalten hat. 
+
+<center><img src="img_readme/Feedback2.png" width="1200" /></center>
+
+### 3. Feedback speichern
+- Speichern und zum Kurs
+
+<center><img src="img_readme/Feedback3.png" width="1200" /></center>
+
+### 4. Antwortfeld anlegen
+- In das Feedback navigieren
+- Elemente bearbeiten
+
+<center><img src="img_readme/Feedback4.png" width="1200" /></center>
+
+### 5. Art des Antwortfelds
+- Als Art der Frage `Numerische Antwort` auswählen 
+
+<center><img src="img_readme/Feedback5.png" width="1200" /></center>
+
+### 6. Einstellungen des Antwortfelds
+- Erforderlich: Ja
+- Frage: Matrikelnummer
+- Position: 1
+- Änderungen speichern
+
+<center><img src="img_readme/Feedback6.png" width="1200" /></center>
+
+### 7. Extraktion des Feldnamens der Matrikelnummer
+1. Formular mit einer einzigartigen Nummer ausfüllen, die später über eine Suche im HTML wiedergefunden werden kann. Beispiel: 123456789
+2. Auf Email warten, in der steht, dass das Formular ausgefüllt wurde
+3. Auf Link (Das Feedback ist auf der Website verfügbar) in der Email klicken
+4. Rechtsklick auf die Seite -> Seitenquelltext untersuchen
+5. Mit Strg + F die zuvor eingegebene Nummer im Seitenquelltext suchen (z.B. 123456789)
+6. `name` Attribut des HTML Tags mit der Matrikelnummer (im Screenshot gelb markiert) identifizieren und in `MATNO_FIELDNAME` Environment Variable in der .env des Servers, auf dem die Integration läuft, eintragen.
+
+<center><img src="img_readme/Feedback7.png" width="1200" /></center>
 
 
 ## Terminbuchungskalender für Präsenzschulungen
-Pro Schulung wird im entsprechenden Moodle Kurs ein Terminbuchungskalender (Planer) angelegt. Damit alles reibungslos funktioniert, muss der Kalender entsprechend der nachfolgenden Anleitung angelegt werden.
+Pro Schulung wird im entsprechenden Moodle Kurs ein Terminbuchungskalender (Planer) angelegt. Damit alles reibungslos funktioniert, muss der Kalender entsprechend der nachfolgenden Anleitung angelegt bzw. angepasst werden.
+
+
+
+
+## Durchführung von Präsenzschulungen
+Nach Durchführung einer Präsenzschulung müssen alle Teilnehmer im jeweiligen Kalendertermin eine Bewertung erhalten, damit das entsprechende Badge vergeben wird.
 
 ## Badges
 Pro Schulung wird im entsprechenden Moodle Kurs ein Badge angelegt. 
@@ -104,3 +157,5 @@ Es dürfen nur Personen FabMan Accounts erhalten, **welche die Nutzungsordnung i
 - Infoposter / Aufsteller zur Systemumstellung am maker.space Eingang
 
 - Abfangen, wenn ein Studi versucht sich zu registrieren, aber schon einen Account hat -> keine Nachricht an das TTeam senden, sondern dem Nutzer per Mail eine Info senden, dass er bereits einen Account hat
+
+- Irgendwie das Plugin customforms installiert und aktiviert bekommen, damit die Formularantworten direkt in der Mail stehen können und nicht der Umweg über das WebScraping genommen werden muss
