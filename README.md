@@ -246,6 +246,13 @@ Für das Rendering der Zertifikate wird das npm Modul [docxtemplater](https://ww
 - `docker compose build` ausführen
 - `docker compose up` (Ausführung im Vordergrund) oder `docker compose up -d` (Ausführung im Hintergrund) ausführen.
 
+# Laufende Anwendung aktualisieren (Changes deployen)
+- Ins Repository `fabman-moodle-integration`
+- `docker compose down`
+- `git pull`
+- `docker compose build`
+- `docker compose up -d`
+
 
 # Mögliche Verbesserungen
 
