@@ -111,19 +111,112 @@ Nachfolgend befindet sich eine Schritt für Schritt Anleitung zum korrekten Anle
 
 
 ## Terminbuchungskalender für Präsenzschulungen
-Pro Schulung wird im entsprechenden Moodle Kurs ein Terminbuchungskalender (Planer) angelegt. Damit alles reibungslos funktioniert, muss der Kalender entsprechend der nachfolgenden Anleitung angelegt bzw. angepasst werden.
+Pro Schulung wird im entsprechenden Moodle Kurs ein Terminbuchungskalender (Planer) angelegt. Damit alles reibungslos funktioniert, muss der Kalender entsprechend der nachfolgenden Anleitung angelegt bzw. angepasst werden. Außerdem muss die Abschlussverfolgung in den jeweiligen Kurseinstellungen aktiviert sein. 
+
+### 0. Planereinstellungen öffnen
+- Die Einstellungen der entsprechenden Planeraktivität öffnen
+
+### 1. Bewertungen konfigurieren
+- Bewertung vom Typ Punkt mit Maximalpunkte 1 konfigurieren
+- Bewertungskategorie: Nicht kategorisiert
+- Bestehensgrenze: 1
+
+<center><img src="img_readme/MM-Kalenderbewertung1.png" width="1200" /></center>
 
 
+### 2. Abschlussbedingungen festlegen
+- Abschlussbedingung hinzufügen
+- Aktivität ist abgeschlossen, wenn TN eine Bewertung erhalten und damit die Bestehendgrenze erreichen
+
+! Wenn die Überschrift Abschlussbedingungen in den Einstellungen nicht zu finden ist, ist wahrscheinlich die Abschlussverfolgung in den Kurseinstellungen noch nicht aktiviert !
+
+<center><img src="img_readme/MM-Kalenderbewertung2.png" width="1200" /></center>
 
 
 ## Durchführung von Präsenzschulungen
 Nach Durchführung einer Präsenzschulung müssen alle Teilnehmer im jeweiligen Kalendertermin eine Bewertung erhalten, damit das entsprechende Badge vergeben wird.
+
+### 1. Teilnehmer auswählen
+- In der Übersicht über die Schulungstermine im entsprechenden Zeitslot auf den Teilnehmer klicken
+
+<center><img src="img_readme/Schulungsbewertung1a.png" width="1200" /></center>
+
+### 2. Teilnehmer bewerten
+- Wahrgenommen: Ja
+- Bewertung: 1
+- Änderungen speichern
+
+<center><img src="img_readme/Schulungsbewertung2a.png" width="1200" /></center>
+
 
 ## Badges
 Pro Schulung wird im entsprechenden Moodle Kurs ein Badge angelegt. 
 Badges müssen ein Mal pro Jahr neu angelegt werden. Das liegt daran, dass Maschinenberechtigungen nur ein Jahr gültig sein sollen, Badges aber nur ein einziges Mal vergeben werden können und auch nach Ablauf nicht noch einmal neu vergeben werden können. Daher werden zum 1.1. jedes Jahres alle Badges mit dem aktuellen Jahr neu angelegt, z.B. `MMLC_25`. Der Jahressuffix (`_25`) wird innerhalb der Integration ignoriert.
 
 Damit alles reibungslos funktioniert, muss das Badge entsprechend der nachfolgenden Anleitung angelegt werden.
+
+
+### 1. Badge erstellen - Navigation zu Badges
+
+- Auf den Badges Reiter in der Seitenleiste des Kurses klicken.
+- Neuen Badge anlegen klicken
+
+<center><img src="img_readme/Badge-erstellen1.png" width="800" /></center>
+
+### 2. Badge erstellen - Grundeinstellungen
+
+- Der Badgename besteht aus dem Kursnamen und den letzten zwei Stellen der aktuellen Jahreszahl, getrennt durch einen Unterstrich. Der Kursname sollte keine Leerzeichen enthalten. Beispiel: Kurs `MMVP`, Jahr 2025 = `MMVP_25`.
+- Beschreibung beliebig ausfüllen.
+- inno.space Logo oder anderes passendes Logo als Bild auswählen.
+
+<center><img src="img_readme/Badge-erstellen2.png" width="1200" /></center>
+
+### 3. Badge erstellen - Ablaufdatum
+- Ablaufdatum: Relative Zeit, 365 Tage nach der Verleihung
+- Badge anlegen
+
+<center><img src="img_readme/Badge-erstellen3.png" width="1200" /></center>
+
+### 4. Kriterium hinzufügen - Kriterium hinzufügen
+- Im Überblick über den Badge auf `Kriterium hinzufügen` klicken
+
+<center><img src="img_readme/Badge-erstellen4.png" width="1200" /></center>
+
+### 5. Kriterium hinzufügen - Art des Kriteriums
+- Im Dropdown Menü `Aktivitätsabschluss` auswählen. Damit wird das Badge bei Abschließen einer bestimmten Aktivität vergeben.
+
+<center><img src="img_readme/Badge-erstellen5.png" width="1200" /></center>
+
+### 6. Kriterium hinzufügen - Aktivitätsabschluss und Erfüllungsbedingungen
+- Bei Aktivitätsabschluss die zuvor konfigurierte Planer-Aktivität zur Buchung eines Präsenzschulungstermins anklicken
+- Dieses Kriterium is erfüllt, wenn ... eine der gewählten Aktivitäten ist abgeschlossen
+
+<center><img src="img_readme/Badge-erstellen6.png" width="1200" /></center>
+
+### 7. Mitteilung konfigurieren I
+- Aus dem Dropdown Menü oben links `Mitteilung auswählen`  
+(Grünes Banner kann auch gelb sein, das wird im nächsten Schritt behandelt)
+
+<center><img src="img_readme/Badge-erstellen7.png" width="1200" /></center>
+
+### 8. Mitteilung konfigurieren II
+- Ersteller/in benachrichtigen: Jederzeit
+- Änderungen speichern  
+(Grünes Banner kann auch gelb sein, das wird im nächsten Schritt behandelt)
+
+<center><img src="img_readme/Badge-erstellen8.png" width="1200" /></center>
+
+### 9. Zugriff aktivieren I
+- Im gelben Banner Zugriff aktivieren klicken
+
+<center><img src="img_readme/Badge-erstellen9.png" width="1200" /></center>
+
+### 10. Zugriff aktivieren II
+
+- Aktivieren klicken
+<center><img src="img_readme/Badge-erstellen10.png" width="1200" /></center>
+
+
 
 ## FabMan Schulungen
 Für jedes in Moodle durch eine Schulung erhältliches Badge muss ein korrespondierender Training Course in FabMan angelegt werden. Um die Zuordnung von Badges und Training Courses zu ermöglichen, muss der Name des Training Courses exakt dem Namen des Badges ohne Jahressuffix entsprechen.  
@@ -138,7 +231,9 @@ Für das Rendering der Zertifikate wird das npm Modul [docxtemplater](https://ww
 
 
 # Weitere Hinweise
-Es dürfen nur Personen FabMan Accounts erhalten, **welche die Nutzungsordnung in Moodle unterschrieben hochgeladen** haben. Diese kann in FabMan leider nicht abgebildet werden.
+- Es dürfen nur Personen FabMan Accounts erhalten, **welche die Nutzungsordnung in Moodle unterschrieben hochgeladen** haben. Diese kann in FabMan leider nicht abgebildet werden.
+
+- ggf. ist es notwendig, auch den Planer für die Präsenztermine jedes Jahr neu anzulegen, damit die Badges des neuen Jahres nicht rückwirkend für eine Schulungsteilnahme aus dem Vorjahr vergeben werden.
 
 # Anwendung starten
 - Auf einem docker-fähigen Gerät (bspw. RaspberryPi) [Docker](https://www.docker.com/) installieren.
